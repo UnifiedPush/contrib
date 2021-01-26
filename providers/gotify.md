@@ -35,3 +35,15 @@ location /UP {
      }
 }
 ```
+
+### Go
+
+[Golang Rewrite Proxy](https://github.com/karmanyaahm/golang-unified-push-rewrite-proxy) is a program can be installed to run as a rewrite proxy for Gotify.
+
+Traffic from /UP on any reverse proxy running Gotify can be proxied to it. The following is an example for Nginx.
+
+```nginx
+location  /UP {    
+        proxy_pass            http://127.0.0.1:5000;
+}
+```
