@@ -8,3 +8,7 @@
 ## Using Gotify as a UnifiedPush provider
 
 Documentation is available at <https://unifiedpush.org/users/distributors/gotify/>.
+
+## Public Servers
+
+* <coming>
