@@ -6,5 +6,10 @@
 
 ## NoProvider2Push
 * [Sources](https://github.com/NoProvider2Push)
-* [F-Droid](https://f-droid.org/packages/com.flyingpanda.noprovider2push) You need to add this repo first: repo.unifiedpush.org
+* [F-Droid](https://f-droid.org/packages/org.unifiedpush.distributor.noprovider2push) You need to add this repo first: repo.unifiedpush.org
 * [Direct download](https://github.com/NoProvider2Push/android/releases)
+
+## FCM-UP Distributor
+* [Sources](https://github.com/UnifiedPush/fcm-distributor)
+* [F-Droid](https://f-droid.org/packages/org.unifiedpush.distributor.fcm) You need to add this repo first: repo.unifiedpush.org
+* [Direct download](https://github.com/UnifiedPush/fcm-distributor/releases)
