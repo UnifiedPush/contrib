@@ -35,7 +35,8 @@ location /_matrix/push/v1/notify {
     proxy_set_header Content-Type application/json;
     proxy_set_header Host $host;
     proxy_pass $target;
-    subs_filter '*' '{}';
+    subs_filter_types * ;
+    subs_filter '.*' '{}' r;
 }
 ```
 
