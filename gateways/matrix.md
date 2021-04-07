@@ -14,12 +14,12 @@ need another re-write proxy.
 
 The one at https://matrix.gateway.unifiedpush.org is publically available, however you can easily self-host it.
 
-Here is a rewrite proxy, be carreful since it is vulnerable to SSRF (proxy_pass $target) :
+Here is a rewrite proxy, change accepted with your own endpoint :
 
 ```
-resolver 8.8.8.8;
+resolver 127.0.0.1;
 
-location /_matrix/push/v1/notify {
+llocation /_matrix/push/v1/notify {
     set $target '';
     if ($request_method = GET ) {
         return 200 '{"gateway":"matrix"}';
@@ -29,8 +29,10 @@ location /_matrix/push/v1/notify {
         ngx.req.read_body()
         local body = ngx.req.get_body_data()
         local parsedBody = cjson.decode(body)
+        local accepted = "https://relay.example.tld/"
         ngx.var.target = parsedBody["notification"]["devices"][1]["pushkey"]
         ngx.req.set_body_data(body)
+        if(string.sub(String,1,string.len(accepted))!=accepted) then target="0.0.0.0"
     }
     proxy_set_header Content-Type application/json;
     proxy_set_header Host $host;
@@ -38,5 +40,6 @@ location /_matrix/push/v1/notify {
     subs_filter_types * ;
     subs_filter '.*' '{}' r;
 }
+
 ```
 
