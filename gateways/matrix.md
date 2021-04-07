@@ -14,7 +14,7 @@ need another re-write proxy.
 
 The one at https://matrix.gateway.unifiedpush.org is publically available, however you can easily self-host it.
 
-Here is a rewrite proxy, change accepted with your own endpoint :
+Here is a rewrite proxy, change `accepted` with your own endpoint, do not forget the last `/` :
 
 ```
 resolver 127.0.0.1;
