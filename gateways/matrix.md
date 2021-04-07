@@ -19,7 +19,7 @@ Here is a rewrite proxy, change `accepted` with your own endpoint, do not forget
 ```
 resolver 127.0.0.1;
 
-llocation /_matrix/push/v1/notify {
+location /_matrix/push/v1/notify {
     set $target '';
     if ($request_method = GET ) {
         return 200 '{"gateway":"matrix"}';
