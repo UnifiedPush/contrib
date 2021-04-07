@@ -10,11 +10,11 @@
 ### Nginx
 
 Until [MSC2970](https://github.com/matrix-org/matrix-doc/pull/2970) is figured out we unfortunately
-need another simple re-write proxy. 
+need another re-write proxy. 
 
 The one at https://matrix.gateway.unifiedpush.org is publically available, however you can easily self-host it.
 
-For that, add to your nginx config on the same domain you serve gotify the following:
+Here is a rewrite proxy, be carreful since it is vulnerable to SSRF (proxy_pass $target) :
 
 ```
 resolver 8.8.8.8;
