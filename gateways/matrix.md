@@ -32,7 +32,8 @@ llocation /_matrix/push/v1/notify {
         local accepted = "https://relay.example.tld/"
         ngx.var.target = parsedBody["notification"]["devices"][1]["pushkey"]
         ngx.req.set_body_data(body)
-        if(string.sub(ngx.var.target,1,string.len(accepted))!=accepted) then ngx.var.target="0.0.0.0"
+        if(string.sub(ngx.var.target,1,string.len(accepted))~=accepted) then ngx.var.target="http://0.0.0.0/"
+        end
     }
     proxy_set_header Content-Type application/json;
     proxy_set_header Host $host;
