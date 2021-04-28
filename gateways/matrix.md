@@ -48,5 +48,5 @@ location /_matrix/push/v1/notify {
 
 This gateway supports forwarding to any public remote URL with defense against requests to internal networks.
 
-Information on setup is in the documentation for the [Golang Rewrite Proxy](/UnifiedPush/common-proxies)
+Information on setup is in the documentation for the [Golang Rewrite Proxy](https://github.com/UnifiedPush/common-proxies)
 
