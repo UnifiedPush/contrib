@@ -14,7 +14,7 @@ need another re-write proxy.
 
 The one at https://matrix.gateway.unifiedpush.org is publically available, however you can easily self-host it.
 
-Here is a rewrite proxy, change `accepted` with your own endpoint, do not forget the last `/` :
+Here is a gateway, change `accepted` with your own endpoint, do not forget the last `/` :
 
 ```
 resolver 127.0.0.1;
@@ -43,4 +43,10 @@ location /_matrix/push/v1/notify {
 }
 
 ```
+
+### Go
+
+This gateway supports forwarding to any public remote URL with defense against requests to internal networks.
+
+Information on setup is in the documentation for the [Golang Rewrite Proxy](https://github.com/karmanyaahm/golang-unified-push-rewrite-proxy)
 
