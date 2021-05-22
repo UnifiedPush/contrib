@@ -11,4 +11,5 @@ Documentation is available at <https://unifiedpush.org/users/distributors/gotify
 
 ## Public Servers
 
-* <coming>
+* <https://gotify1.unifiedpush.org>
+* <https://gotify.fedilab.app/>
