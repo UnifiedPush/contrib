@@ -22,7 +22,7 @@ resolver 127.0.0.1;
 location /_matrix/push/v1/notify {
     set $target '';
     if ($request_method = GET ) {
-        return 200 '{"gateway":"matrix"}';
+        return 200 '{"unifiedpush":{"gateway":"matrix"}}';
     }
     access_by_lua_block {
         local cjson = require("cjson")
