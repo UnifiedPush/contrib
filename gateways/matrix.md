@@ -19,7 +19,7 @@ Here is a gateway, change `accepted` with your own endpoint, do not forget the l
 ```
 resolver 127.0.0.1;
 
-llocation /_matrix/push/v1/notify {
+location /_matrix/push/v1/notify {
   mirror /mx-mirror;
   mirror_request_body on; 
   if ($request_method = GET ) { 
