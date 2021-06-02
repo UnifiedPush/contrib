@@ -19,25 +19,36 @@ Here is a gateway, change `accepted` with your own endpoint, do not forget the l
 ```
 resolver 127.0.0.1;
 
-location /_matrix/push/v1/notify {
-    set $target '';
-    if ($request_method = GET ) {
-        return 200 '{"unifiedpush":{"gateway":"matrix"}}';
-    }
-    access_by_lua_block {
-        local cjson = require("cjson")
-        ngx.req.read_body()
-        local body = ngx.req.get_body_data()
-        local parsedBody = cjson.decode(body)
-        local accepted = "https://relay.example.tld/"
-        ngx.var.target = parsedBody["notification"]["devices"][1]["pushkey"]
-        ngx.req.set_body_data(body)
-        if(string.sub(ngx.var.target,1,string.len(accepted))~=accepted) then ngx.var.target="http://0.0.0.0/"
-        end
-    }
-    proxy_set_header Content-Type application/json;
-    proxy_set_header Host $host;
-    proxy_pass $target;
+llocation /_matrix/push/v1/notify {
+  mirror /mx-mirror;
+  mirror_request_body on; 
+  if ($request_method = GET ) { 
+    return 200 '{"unifiedpush":{"gateway":"matrix"}}';
+  }
+  proxy_pass https://$server_name/mx-upstream;
+}
+
+location /mx-upstream {
+  return 200 '{"rejected":[]}';
+}
+
+location /mx-mirror {
+  internal;
+  set $target ''; 
+  access_by_lua_block {
+    local cjson = require("cjson")
+    ngx.req.read_body()
+    local body = ngx.req.get_body_data()
+    local parsedBody = cjson.decode(body)
+    local accepted = "https://relay.example.tld/"
+    ngx.var.target = parsedBody["notification"]["devices"][1]["pushkey"]
+    ngx.req.set_body_data(body)
+    if(string.sub(ngx.var.target,1,string.len(accepted))~=accepted) then ngx.var.target="http://0.0.0.0/"
+    end 
+  }
+  proxy_set_header Content-Type application/json;
+  proxy_set_header Host $host;
+  proxy_pass $target;
 }
 
 ```
