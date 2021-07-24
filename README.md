@@ -1,7 +1,7 @@
 # Contrib
 Gateways, Proxies, and more
 
-You can find definitions of Gateway and Rewrite proxy on the [specifications](https://github.com/UnifiedPush/UP-spec).
+You can find definitions of Gateway and Rewrite proxy on the [specifications](https://github.com/UnifiedPush/specifications).
 
 TL;DR:
 
