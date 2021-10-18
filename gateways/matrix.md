@@ -35,7 +35,7 @@ location /mx-upstream {
 location /mx-mirror {
   internal;
   set $target ''; 
-  access_by_lua_block {
+  rewrite_by_lua_block {
     local cjson = require("cjson")
     ngx.req.read_body()
     local body = ngx.req.get_body_data()
