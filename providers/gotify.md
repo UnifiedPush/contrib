@@ -2,7 +2,7 @@
 
 ## Links
 
-* [Android application](https://github.com/gotify/android/tree/unifiedpush)
+* [Android application](https://github.com/UnifiedPush/gotify-android)
 * [Server](https://github.com/gotify/server)
 
 ## Using Gotify as a UnifiedPush provider
