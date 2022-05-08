@@ -1,5 +1,9 @@
 # Distributors
 
+---
+Find updated information at <https://unifiedpush.org/users/intro/#install-a-distributor>
+---
+
 ## Gotify
 * [Sources](https://github.com/gotify)
 * [F-Droid](https://f-droid.org/packages/com.github.gotify) You need to add this repo first: repo.unifiedpush.org
